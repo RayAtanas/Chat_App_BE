@@ -12,7 +12,7 @@ import { JwtStrategy } from './jwt.startegy';
     UsersModule,
     PassportModule,
     JwtModule.register({
-      secret: process.env.JWT_SECRET || 'supersecretkey',
+      secret: process.env.JWT_SECRET || '2831t6e2t30dsadahsdwe2268347rd2372hjdhshcuiw',
       signOptions: { expiresIn: '1h' },
     }),
   ],
