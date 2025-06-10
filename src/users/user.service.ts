@@ -44,4 +44,18 @@ async updateStatus(
     return this.usersRepo.update(userId, { status });
   }
 
+async findAllUsers(): Promise<Partial<User>[]> {
+  const users = await this.usersRepo.find();
+  
+  return users.map(({ password, ...user }) => user);
+}
+
+  async findUsersByStatus(status: UserStatus): Promise<Partial<User>[]> {
+    const users = await this.usersRepo.find({ where: { status } });
+    return users.map(({ password, ...user }) => user);
+  }
+
+   async findById(id: string): Promise<User | null> {
+    return this.usersRepo.findOneBy({ id });
+  }
 }
